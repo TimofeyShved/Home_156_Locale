@@ -36,6 +36,9 @@ public class Main {
         System.out.println(DateFormat.getDateInstance(DateFormat.FULL, locale2).format(new Date()));
         System.out.println(DateFormat.getDateInstance(DateFormat.FULL, locale3).format(new Date()));
 
+        // -------------- через ресурсы
+        System.out.println("-------------------");
+
         // выбор значений от региона
         ResourceBundle bundle1 = ResourceBundle.getBundle("textLocal", new Locale("en", "US"));
         ResourceBundle bundle2 = ResourceBundle.getBundle("textLocal", locale2);
@@ -46,5 +49,19 @@ public class Main {
         System.out.println(bundle3.getString("value"));
         // ?? - исправим:
         System.out.println(new String(bundle3.getString("value").getBytes("ISO-8859-1"), "UTF-8"));
+
+        // -------------- через классы
+        System.out.println("-------------------");
+
+        // выбор значений от региона
+        ResourceBundle bundle4 = ResourceBundle.getBundle("com.company.locale.text", locale1);
+        ResourceBundle bundle5 = ResourceBundle.getBundle("com.company.locale.text", locale2);
+        ResourceBundle bundle6 = ResourceBundle.getBundle("com.company.locale.text", locale3);
+
+        System.out.println(bundle4.getString("value"));
+        System.out.println(bundle5.getString("value"));
+        System.out.println(bundle6.getString("value"));
+
+
     }
 }
